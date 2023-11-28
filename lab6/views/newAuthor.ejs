@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Operations</title>
+</head>
+
+<body>
+    <h1>Adding a new Author</h1>
+    <form method="POST" action="/author/new">
+        First Name:
+        <input type="text" name="fName"><br>
+        Last Name:
+        <input type="text" name="lName"><br>
+        Date of Birth:
+        <input type="date" name="birthDate">
+        Sex: 
+      <select name="sex">
+        <option value="m">M</option>
+        <option value="f">F</option>
+      </select>
+        <br>
+      Profession:
+      <input type="text" name="prof"><br>
+      Country:
+      <input type="text" name="country"><br>
+      Biography:
+      <input type="text" name="fName">
+      <br>
+        <button>Add Author</button>
+    </form>
+  <br>
+
+  <% if (typeof message != "undefined") { %>
+    <h3><%=message%></h3>    
+   <% } %>
+     
+</body>
+
+</html>
