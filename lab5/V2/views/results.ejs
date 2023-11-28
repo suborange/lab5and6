@@ -1,0 +1,48 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <%- include("partials/header.ejs") %>
+    <body>
+      <h1>Quotes Found</h1>
+      <!--  quotes is the variable passed in .render()-->
+      <p><% for (i of quotes) { %>
+  <%= i.quote %> <br>
+    -<em>
+      <a href="#" id="<%=i.authorId%>"> <!-- inline link, using all the author id's
+        # also prevent page reload on link-->
+        <%= i.firstName%> <%= i.lastName %>
+      </a>
+    </em>
+    <br><br>
+      <% } %> </p>
+        <!-- write javascript code with  -->
+
+       
+        <div id="authorModal" class="modal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Author Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bgcolor ">
+                <div class="container ">
+                <div id="authorInfo" class="">       
+        </div>
+                <div id="authorDetails" class="m"></div>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <%- include("partials/footer.ejs") %>
+        
+
+        <script src="/js/scripts.js"></script>
+      </body>
+
+    </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header.ejs") %>
+<body>
+<h1>Quote Finder</h1>
+  <!--  KEYWORD -->
+<form action="/searchByKeyword">
+Keyword:
+<input type="text" name="keyword">
+<button>Search by Keyword</button>
+</form>
+  <br>
+  <!--  AUTHOR -->
+  <form action="/searchByAuthor">
+    <!--  authors is the variable passed in .render()-->
+  <select name="authorId">
+    <% for (author of authorDB) { %>
+      <option value="<%=author.authorId %>">
+        <%=author.firstName %> <%=author.lastName %>
+        </option>
+          <% } %>
+  
+          </select>
+  <button>Search by Author</button>
+  </form>
+
+            <!--  CATEGORY -->
+            <br>
+            <form action="/searchByCategory">
+              <select name="category">
+                <% for (cat of catDB) { %>
+                  <option value="<%=cat.category %>">
+                    <%=cat.category %>
+                    </option>
+                      <% } %>
+
+                      </select>
+            <button>Search by Category</button>
+            </form>
+            
+            <br>
+            <!--  LIKES-->
+            <form action="/searchByLikes">
+              Min:
+              <input type="text" name="likesmin">
+              Max: 
+               <input type="text" name="likesmax">
+              <button>Search by Range of Likes</button>
+              </form>
+
+  
+  <%- include("partials/footer.ejs") %>
+</body>
+
+</html>
