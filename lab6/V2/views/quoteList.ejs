@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Operations</title>
+</head>
+
+<body>
+    <h1>Update/Delete Quotes - <a href="/">Home</a></h1>
+    <% for (quote of quotes) { %>
+        <a href="/quote/edit?authorId=<%=quote.authorId%>">UPDATE</a>
+        <a href="/quote/delete?authorId=<%=quote.authorId%>">DELETE</a>
+        <%=author.firstName%>
+            <%=author.lastName%> <br>
+                <% } %>
+</body>
+
+</html>
