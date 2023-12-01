@@ -15,23 +15,19 @@
         <br>
         Category:
         <select name="category">
-            <!--  display the one for the current quote first -->
-            <% let index =0; %>
-            <% for (author of authorInfo) { %>
-                <% if (author.authorId==quoteInfo[0].authorId ) { %>
-                    <option value="<%=quoteInfo[0].category %>"><%=quoteInfo[0].category %></option>
-                    <% index = author.authorId %>
-                <% }%>
-            <% }%>
-             <!-- grab the rest, if they dont match! -->
+            <!--  display the one for the current quote first -->      
             <% for (cat of cats) { %>
-                <% if (index != quoteInfo[0].authorId) { %>
-               
-                <option value="<%=cat.category %>">
-                    <%=cat.category %>
-                </option>
+                <% if (cat.category == quoteInfo[0].category) { %>
+                <option value="<%=quoteInfo[0].category %>"><%=quoteInfo[0].category %></option>
                 <% } %>
-                
+            <% } %>
+            <!-- if it does not match, then display the categories -->
+            <% for (cat of cats) { %>
+                <% if (cat.category != quoteInfo[0].category) { %>
+                    <option value="<%=cat.category %>">
+                        <%=cat.category %>
+                    </option>
+                <% } %>
             <% } %>
 
         </select>
