@@ -9,17 +9,57 @@
 <body>
     <h1>Updating Quote Data - <a href="/">Home</a></h1>
     <form method="POST" action="/quote/edit">
-        <input type="hidden" name="authorId" value="<%=authorInfo[0].authorId%>">
+        <input type="hidden" name="quoteId" value="<%=quoteInfo[0].authorId%>">
         Quote:
         <input type="text" name="quote" value="<%=quoteInfo[0].quote%>">
         <br>
         Category:
-        <input type="text" name="cat" value="<%=quoteInfo[0].category%>">
+        <select name="category">
+            <!--  display the one for the current quote first -->
+            <% let index =0; %>
+            <% for (author of authorInfo) { %>
+                <% if (author.authorId==quoteInfo[0].authorId ) { %>
+                    <option value="<%=quoteInfo[0].category %>"><%=quoteInfo[0].category %></option>
+                    <% index = author.authorId %>
+                <% }%>
+            <% }%>
+             <!-- grab the rest, if they dont match! -->
+            <% for (cat of cats) { %>
+                <% if (index != quoteInfo[0].authorId) { %>
+               
+                <option value="<%=cat.category %>">
+                    <%=cat.category %>
+                </option>
+                <% } %>
+                
+            <% } %>
+
+        </select>
         <br>
         Likes:
-        <input type="date" name="dob" value="<%=quoteInfo[0].likes%>">
-        <br>       
-       
+        <input type="text" name="likes" value="<%=quoteInfo[0].likes%>">
+        <br>
+        Author:
+        <select name="authorId">            
+                <!-- grab the author for current quote -->
+            <% for (author of authorInfo) { %>
+                <% if (author.authorId == quoteInfo[0].authorId ) { %>
+                    <option value="<%=quoteInfo[0].authorId %>">
+                        <%=author.firstName %> <%=author.lastName %>
+                        </option>
+                    <% }%>
+                <% }%>
+                <!--  grab the rest that do not match -->
+                <% for (author of authorInfo) { %>
+                    <% if (author.authorId != quoteInfo[0].authorId ) { %>
+                        <option value="<%=author.authorId %>">
+                            <%=author.firstName %> <%=author.lastName %>
+                            </option>                                                                       
+                    <% } %>                    
+                <% }%>                       
+    
+                  </select>
+
         <br>
         <button>Update Quote</button>
     </form>

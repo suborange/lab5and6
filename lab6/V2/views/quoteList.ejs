@@ -9,11 +9,11 @@
 <body>
     <h1>Update/Delete Quotes - <a href="/">Home</a></h1>
     <% for (quote of quotes) { %>
-        <a href="/quote/edit?authorId=<%=quote.authorId%>">UPDATE</a>
-        <a href="/quote/delete?authorId=<%=quote.authorId%>">DELETE</a>
-        <%=author.firstName%>
-            <%=author.lastName%> <br>
-                <% } %>
+        <a href="/quote/edit?quoteId=<%=quote.quoteId %>">UPDATE</a>
+        <a href="/quote/delete?quoteId=<%=quote.quoteId%>">DELETE</a>
+        <%=quote.quote%>
+        <br>
+    <% } %>
 </body>
 
-</html>
+</h tml>
