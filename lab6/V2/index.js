@@ -182,16 +182,19 @@ app.post("/quote/edit", async function (req, res) {
   req.body.authorId, // from the drop down of authors
     id];
   let postsql = await executeSQL(sql, params);
+  console.log("ID:", id);
   // execute update, then redisplay the new information
-  sql = `SELECT *, DATE_FORMAT(dob, '%Y-%m-%d') dobISO
-    FROM q_authors WHERE authorId = ${id}`;
-
-  let rows = await executeSQL(sql);
-
-  res.render("editQuote", {
-    "quoteInfo": rows,
-    "message": "Quote Updated!"
-  });
+  let qsql = `SELECT *
+  FROM q_quotes  
+  WHERE quoteId = ${id}`;
+  let qrows = await executeSQL(qsql);
+  let aqsl = `SELECT DISTINCT firstName, lastName, authorId
+              FROM q_authors `;
+  let arows = await executeSQL(aqsl);  
+  let csql = `SELECT DISTINCT category FROM q_quotes`;
+  let cats = await executeSQL(csql);
+  // console.dir(qrows);
+  res.render("editQuote", { "quoteInfo": qrows, "authorInfo": arows, "cats": cats, "message": "Quote Updated" });
 });
 
 // DELETE
