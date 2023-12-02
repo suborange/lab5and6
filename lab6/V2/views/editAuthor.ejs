@@ -9,31 +9,32 @@
 
 <body>
     <h1>Updating Author Data - <a class="title" href="/">Home</a></h1>
-    <div class="container">
-    <form method="POST" action="/author/edit">
-        <input type="hidden" name="authorId" value="<%=authorInfo[0].authorId%>">
-        First Name:
-        <input type="text" name="fName" value="<%=authorInfo[0].firstName%>">
+    <div class="addcontainer ">
+        <form method="POST" action="/author/edit">
+            <input type="hidden" name="authorId" value="<%=authorInfo[0].authorId%>">
+            First Name:
+            <input type="text" name="fName" value="<%=authorInfo[0].firstName%>">
+            <br>
+            Last Name:
+            <input type="text" name="lName" value="<%=authorInfo[0].lastName%>">
+            <br>
+            Date of Birth:
+            <input type="date" name="dob" value="<%=authorInfo[0].dobISO%>">
+            <br>
+            Sex:
+            <input type="radio" name="sex" value="M" <% if (authorInfo[0].sex=="M" ) { %>checked<% } %> > Male
+                <input type="radio" name="sex" value="F" <% if (authorInfo[0].sex=="F" ) { %>checked<% } %> > Female
+                    <br>
+                    <button>Update Author</button>
+        </form>
         <br>
-        Last Name:
-        <input type="text" name="lName" value="<%=authorInfo[0].lastName%>">
-        <br>
-        Date of Birth:
-        <input type="date" name="dob" value="<%=authorInfo[0].dobISO%>">
-        <br>
-        Sex:
-        <input type="radio" name="sex" value="M" <% if (authorInfo[0].sex=="M" ) { %>checked<% } %> > Male
-        <input type="radio" name="sex" value="F" <% if (authorInfo[0].sex=="F" ) { %>checked<% } %> > Female
-        <br>
-        <button>Update Author</button>
-    </form>
-    <br>
-    <% if (typeof message !="undefined" ) { %>
-        <h3>
-            <%=message%>
-        </h3>
-        <% } %>
-
+    </div>
+    <div class="addcontainer message ">
+        <% if (typeof message !="undefined" ) { %>
+            <h3>
+                <%=message%>
+            </h3>
+            <% } %>
     </div>
 </body>
 

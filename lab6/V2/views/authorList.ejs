@@ -10,16 +10,16 @@
 <body>
     <h1>Update/Delete Authors - <a class="title" href="/">Home</a></h1>
     <div class="container jcenter  ">
-        <div class="container cols test cwidth ">
-    <% for (author of authors) { %>
-        <div class="aleft tleft">
-            <a class="list update" href="/author/edit?authorId=<%=author.authorId%>">UPDATE&nbsp;</a>
-            <a class="list delete" href="/author/delete?authorId=<%=author.authorId%>">DELETE&nbsp;</a>
-            <%=author.firstName%>
-                <%=author.lastName%>
-                 <br>   
+        <div class="container cols  awidth ">
+            <% for (author of authors) { %>
+                <div class="aleft tleft">
+                    <a class="list update" href="/author/edit?authorId=<%=author.authorId%>">UPDATE&nbsp;</a>
+                    <a class="list delete" href="/author/delete?authorId=<%=author.authorId%>">DELETE&nbsp;</a>
+                    <%=author.firstName%>
+                        <%=author.lastName%>
+                            <br>
                 </div>
-        <% } %>
+                <% } %>
         </div>
     </div>
 </body>

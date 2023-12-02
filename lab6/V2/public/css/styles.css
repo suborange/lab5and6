@@ -18,6 +18,7 @@ h1 {
 
 div {
     color: #65d7ab;
+    margin: 2px;
 }
 
 form {
@@ -41,6 +42,8 @@ a.list {
     background-color:#176782;
     text-decoration: none;
     transition-duration: 0.15s;
+    border: none;
+    border-radius: 8px;
 
 }
 
@@ -77,10 +80,19 @@ p {
     color: #dea43f;
 }
 
+div.addcontainer {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+div.message {
+    font-size: 1.5em;
+}
 div.container {
     display: flex;
     margin: 10px;
-
 }
 .cols {
     flex-direction: column;
@@ -120,6 +132,10 @@ footer {
 
 .cwidth {
     width: 900px;
+}
+
+.awidth {
+    width: 420px;
 }
 .bgcolor {
     background-color: #176782;

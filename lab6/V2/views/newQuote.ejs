@@ -2,45 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>CRUD Operations</title>
-    <link href="/css/styles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>CRUD Operations</title>
+  <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
   <h1>Adding a new Quote - <a class="title" href="/">Home</a></h1>
   <div class="addcontainer">
     <form method="POST" action="/quote/new">
-        Quote:
-        <input type="text" name="quote"><br>
-        Author ID:
+      Quote:
+      <input type="text" name="quote"><br>
+      Author ID:
       <select name="authorId">
         <% for (author of authorDB) { %>
           <option value="<%=author.authorId %>">
-            <%=author.firstName %> <%=author.lastName %>
-            </option>
-              <% } %>
+            <%=author.firstName %>
+              <%=author.lastName %>
+          </option>
+          <% } %>
 
-              </select><br>
-                Category:
+      </select><br>
+      Category:
       <select name="category">
-          <% for (cat of catDB) { %>
-            <option value="<%=cat.category %>">
-              <%=cat.category %>
-              </option>
-                <% } %>
+        <% for (cat of catDB) { %>
+          <option value="<%=cat.category %>">
+            <%=cat.category %>
+          </option>
+          <% } %>
 
-                </select>      <br>
-        Likes:      
+      </select> <br>
+      Likes:
       <input type="text" name="likes">
       <br><br>
-        <button>Add Quote</button>
+      <button>Add Quote</button>
     </form>
-  <br>
-
-  <% if (typeof message != "undefined") { %>
-    <h3><%=message%></h3>    
-   <% } %>
+    <br>
+  </div>
+  <div class="addcontainer message ">
+    <% if (typeof message !="undefined" ) { %>
+      <h3>
+        <%=message%>
+      </h3>
+      <% } %>
   </div>
 
 </body>
