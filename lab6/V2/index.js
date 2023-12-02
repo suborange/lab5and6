@@ -50,9 +50,7 @@ app.get('/quote/new', async (req, res) => {
              ORDER BY category ASC`; // grab the categories to display in order
   let catDB = await executeSQL(sql_c);
   // console.log("quote get");
-  res.render('newQuote', { "authorDB": authorDB, "catDB": catDB, "message": "Quote added!" }); // index.ejs route and author db results  
-  // res.send('Hello Express app!')
-  // res.render('newQuote');
+  res.render('newQuote', { "authorDB": authorDB, "catDB": catDB}); // index.ejs route and author db results  
 });
 
 // post request, uses body of http request for submitting values

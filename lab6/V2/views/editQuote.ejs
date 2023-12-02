@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>CRUD Operations</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Updating Quote Data - <a href="/">Home</a></h1>
-   
+    <h1>Updating Quote Data - <a class="title" href="/">Home</a></h1>
+    <div class="container">
     <form method="POST" action="/quote/edit">
         <input type="hidden" name="quoteId" value="<%=quoteInfo[0].quoteId%>">
         Quote:
@@ -66,6 +67,7 @@
             <%=message%>
         </h3>
         <% } %>
+    </div>
 </body>
 
 </html>

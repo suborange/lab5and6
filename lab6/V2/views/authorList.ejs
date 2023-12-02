@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>CRUD Operations</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Update/Delete Authors - <a href="/">Home</a></h1>
+    <h1>Update/Delete Authors - <a class="title" href="/">Home</a></h1>
+    <div class="container jcenter  ">
+        <div class="container cols test cwidth ">
     <% for (author of authors) { %>
-        <a href="/author/edit?authorId=<%=author.authorId%>">UPDATE</a>
-        <a href="/author/delete?authorId=<%=author.authorId%>">DELETE</a>
-        <%=author.firstName%>
-            <%=author.lastName%> <br>
-                <% } %>
+        <div class="aleft tleft">
+            <a class="list update" href="/author/edit?authorId=<%=author.authorId%>">UPDATE&nbsp;</a>
+            <a class="list delete" href="/author/delete?authorId=<%=author.authorId%>">DELETE&nbsp;</a>
+            <%=author.firstName%>
+                <%=author.lastName%>
+                 <br>   
+                </div>
+        <% } %>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -4,16 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>CRUD Operations</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Update/Delete Quotes - <a href="/">Home</a></h1>
-    <% for (quote of quotes) { %>
-        <a href="/quote/edit?quoteId=<%=quote.quoteId %>">UPDATE</a>
-        <a href="/quote/delete?quoteId=<%=quote.quoteId%>">DELETE</a>
-        <%=quote.quote%>
-        <br>
-    <% } %>
+    <h1>Update/Delete Quotes - <a class="title" href="/">Home</a></h1>
+    <div class="container jcenter  ">
+        <div class="container cols cwidth  ">
+            <% for (quote of quotes) { %>
+                <div class="aleft tleft">
+                    <a class="list update" href="/quote/edit?quoteId=<%=quote.quoteId %>">UPDATE&nbsp;</a>
+                    <a class="list delete" href="/quote/delete?quoteId=<%=quote.quoteId%>">DELETE&nbsp;</a>
+                    "<%=quote.quote%>"
+                        <br>
+                </div>
+                <% } %>
+        </div>
+    </div>
+
+
+
 </body>
 
 </h tml>

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>CRUD Operations</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
- <h1>Adding a new Author - <a href="/">Home</a></h1>
-    
+ <h1>Adding a new Author - <a class="title" href="/">Home</a></h1>
+    <div class="container ">
     <form method="POST" action="/author/new">
         First Name:
         <input type="text" name="fName"><br>
@@ -30,14 +31,16 @@
       <input type="text" name="country"><br>
       Biography:
       <input type="text" name="bio">
-      <br>
-        <button>Add Author</button>
+      <br><br>
+        <button class="b">Add Author</button>
     </form>
   <br>
 
   <% if (typeof message != "undefined") { %>
     <h3><%=message%></h3>    
    <% } %>
+
+  </div>
      
 </body>
 
