@@ -133,7 +133,7 @@ app.post("/author/edit", async function (req, res) {
 // DELETE
 app.get('/author/delete', async (req, res) => {
   let sql = `DELETE FROM q_authors 
-  WHERE authorId = ${req.body.authorId}`;
+  WHERE authorId = ${req.query.authorId}`; // get the query result, from get request
 
   let rows = await executeSQL(sql);
   res.redirect('/authors'); // redirect back to listing the authors.
@@ -151,7 +151,7 @@ ORDER BY quoteId ASC`;
 
 // GET
 app.get("/quote/edit", async function (req, res) {
-  let quoteId = req.query.quoteId;
+  let quoteId = req.query.quoteId; // get query from the get request heading
 // NATURAL JOIN q_authors
   let qsql = `SELECT *
   FROM q_quotes  
@@ -182,7 +182,7 @@ app.post("/quote/edit", async function (req, res) {
   req.body.authorId, // from the drop down of authors
     id];
   let postsql = await executeSQL(sql, params);
-  console.log("ID:", id);
+  // console.log("ID:", id);
   // execute update, then redisplay the new information
   let qsql = `SELECT *
   FROM q_quotes  
@@ -199,9 +199,10 @@ app.post("/quote/edit", async function (req, res) {
 
 // DELETE
 app.get('/quote/delete', async (req, res) => {
-  let sql = `DELETE FROM q_quote 
-  WHERE quoteId = ${req.body.quoteId}`;
+  let sql = `DELETE FROM q_quotes 
+  WHERE quoteId = ${req.query.quoteId}`; // get the query result, from get request
 
+  console.log("delete ", req.query.quoteId);
   let rows = await executeSQL(sql);
   res.redirect('/quotes'); // redirect back to listing the authors.
 });

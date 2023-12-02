@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #8b1359;
+    text-align: center; 
+  }
+    
+  h1 {
+    color: #65d7ab;
+  }
+  div
+  {
+    color: #65d7ab;
+  }
+  form {
+    color: #65d7ab;
+  }
+  a {
+    color: #72b0f3;
+  }
+  
+  button {
+    color: #173782;
+    border: none;
+    border-radius: 3px 3px;
+  }
+  button:hover {
+    background-color: #ababab;
+  }
+  select {
+    color: #173782;
+  }
+  p {
+    color: #dea43f;
+  }
+  div.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+  }
+  
+  
+  footer {
+    text-align: center;
+    color: #9ad0bb;
+  }
+  
+  
+  .m {
+    margin-left: 8px;
+  }
+  
+  .bgcolor {
+    background-color: #176782;
+  }
+  .test {
+    border: 3px solid black;
+  }
